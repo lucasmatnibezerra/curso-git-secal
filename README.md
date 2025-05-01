@@ -1,18 +1,20 @@
 
-# Atividade de Git: Colaboração em Equipe
+# Atividade de Git: Colaboração em Equipe (via Fork)
 
-Este documento descreve as instruções que cada aluno deve seguir para realizar uma atividade prática de colaboração utilizando Git e GitHub. A atividade tem como objetivo ensinar os fundamentos de versionamento distribuído e simular um fluxo de colaboração real com uso de branches, commits e pull requests.
+Este documento descreve as instruções que cada aluno deve seguir para realizar uma atividade prática de colaboração utilizando Git e GitHub.  
+A atividade tem como objetivo ensinar os fundamentos de versionamento distribuído e simular um fluxo de colaboração real com uso de branches, commits e pull requests **via fork**, o método mais utilizado em projetos públicos.
 
 ## Objetivo da Atividade
 
 Você irá:
 
-- Clonar um repositório remoto hospedado no GitHub.
+- Fazer um fork de um repositório remoto hospedado no GitHub.
+- Clonar o repositório forkado para sua máquina.
 - Criar uma branch individual com seu nome.
 - Adicionar seu nome ao arquivo equipe.txt.
 - Cometer (commit) suas alterações com uma mensagem descritiva.
-- Enviar sua branch para o repositório remoto (push).
-- Criar um pull request para que sua contribuição seja integrada à branch principal.
+- Enviar sua branch para o seu repositório no GitHub (push).
+- Criar um pull request para que sua contribuição seja integrada ao repositório original do professor.
 
 ---
 
@@ -27,43 +29,44 @@ Antes de iniciar a atividade, você deve ter:
 
 2. Uma conta no GitHub e estar logado em um navegador.
 
-3. O link do repositório remoto fornecido pelo professor.
+3. Acesso ao repositório original:  
+   https://github.com/lucasmatnibezerra/curso-git-secal
 
 ---
 
 ## Passo a Passo
 
-### 1. Clonar o repositório
+### 1. Faça um fork do repositório
 
-Abra o terminal (ou Git Bash no Windows) e execute o seguinte comando:
+1. Acesse o repositório original do professor:  
+   https://github.com/lucasmatnibezerra/curso-git-secal
 
-```
-git clone https://github.com/lucasmatnibezerra/curso-git-secal.git
-```
+2. No canto superior direito da página, clique no botão **"Fork"**.
 
-Substitua o link pelo URL do repositório fornecido pelo professor.
-
-Depois, entre no diretório do projeto:
-
-```
-cd curso-git-secal
-```
-
-Este comando move você para dentro da pasta criada após o clone.
+3. O GitHub criará uma cópia do repositório no seu próprio perfil.
 
 ---
 
-### 2. Criar uma branch com seu nome
+### 2. Clone o seu fork
+
+No terminal, execute o comando abaixo (substitua com o link do seu fork):
+
+```
+git clone https://github.com/seu-usuario/curso-git-secal.git
+cd curso-git-secal
+```
+
+---
+
+### 3. Crie uma branch com seu nome
 
 Você deve criar uma branch nova para trabalhar isoladamente. A branch deve ter seu nome (sem espaços, tudo minúsculo, de preferência).
 
-Execute:
-
 ```
-git checkout -b <seu-nome>
+git checkout -b seu-nome
 ```
 
-Exemplo, para um aluno usando meu nome :
+Exemplo:
 
 ```
 git checkout -b lucasmatnibezerra
@@ -71,9 +74,9 @@ git checkout -b lucasmatnibezerra
 
 ---
 
-### 3. Editar o arquivo equipe.txt
+### 4. Edite o arquivo equipe.txt
 
-Abra o arquivo `equipe.txt` com o seu editor de texto preferido (VS Code, Notepad++, nano, etc).
+Abra o arquivo `equipe.txt` com o seu editor de texto preferido.
 
 Adicione seu nome ao final da lista no arquivo. Por exemplo:
 
@@ -82,39 +85,22 @@ Lista de integrantes do projeto:
 - Lucas Matni Bezerra
 ```
 
-Salve o arquivo após fazer a alteração.
+Salve o arquivo.
 
 ---
 
-### 4. Adicionar as alterações ao controle de versão
+### 5. Adicione e comite as alterações
 
-Execute o comando:
-
-```
+```bash
 git add equipe.txt
-```
-
-Este comando informa ao Git que você deseja incluir esse arquivo no próximo commit.
-
----
-
-### 5. Fazer o commit das alterações
-
-Crie um commit com uma mensagem clara, explicando o que foi feito. Por exemplo:
-
-```
 git commit -m "Adiciona Lucas Matni Bezerra à lista de integrantes"
 ```
 
-A mensagem deve sempre explicar a mudança de forma objetiva.
-
 ---
 
-### 6. Enviar sua branch para o repositório remoto
+### 6. Envie sua branch para o seu fork no GitHub
 
-Agora, envie sua branch para o GitHub com:
-
-```
+```bash
 git push origin lucasmatnibezerra
 ```
 
@@ -122,49 +108,45 @@ Substitua `lucasmatnibezerra` pelo nome da sua branch.
 
 ---
 
-### 7. Criar um Pull Request (PR)
+### 7. Crie um Pull Request para o repositório original
 
-Depois de fazer o push, vá até o site do GitHub e acesse o repositório.
+1. Acesse o seu repositório no GitHub.
 
-Você verá um botão indicando que há uma branch recente com a opção **"Compare & pull request"**.
+2. O GitHub mostrará uma opção para criar um pull request para o repositório original (lucasmatnibezerra/curso-git-secal).
 
-Clique neste botão.
+3. Clique em **"Compare & pull request"**.
 
-Na página seguinte:
+4. Verifique o título e escreva uma descrição, como:
+   > Adicionando Lucas Matni Bezerra à lista de integrantes.
 
-- Verifique se o título do pull request está correto.
-- Escreva uma breve descrição (por exemplo: "Adicionando João Silva à lista").
-- Clique em **"Create pull request"**.
+5. Clique em **"Create pull request"**.
 
 ---
 
 ### 8. Aguardar a análise
 
-O professor (Lucas Matni) fará a análise e o merge da sua contribuição à branch principal.
-
-Você pode acompanhar o status do seu pull request pela interface do GitHub.
+O professor (Lucas Matni) fará a análise e o merge da sua contribuição ao repositório original.
 
 ---
 
 ## Considerações Finais
 
-- Nunca altere diretamente a branch `main`.
-- Sempre utilize uma branch própria para suas contribuições.
-- Se precisar atualizar seu repositório local depois que outros PRs forem aprovados, use:
+- Nunca edite diretamente a branch `main` do repositório original.
+- Use sempre sua própria branch e repositório.
+- Após o merge, você pode atualizar seu fork com:
 
+```bash
+git remote add upstream https://github.com/lucasmatnibezerra/curso-git-secal.git
+git fetch upstream
+git merge upstream/main
 ```
-git checkout main
-git pull origin main
-```
-
-Em seguida, você pode criar uma nova branch e repetir o processo.
 
 ---
 
 ## Dúvidas
 
-Essa atividade é feita para praticar em grupo, e dúvidas são parte do aprendizado.
-
+Essa atividade é feita para praticar em grupo, e dúvidas fazem parte do processo de aprendizagem.  
+Se tiver problemas com fork, push, ou pull request, fale com o professor.
 ---
 
 # Atividade Avançada de Git: Projeto de Desenvolvimento em Camadas
